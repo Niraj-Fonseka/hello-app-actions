@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-app-actions
+  labels:
+    app: hello-app-actions
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-app-actions
+  template:
+    metadata:
+      labels:
+        app: hello-app-actions
+    spec:
+      containers:
+      - name: hello-app-actions
+        image: gcr.io/agile-terra-275621/hello-app-actions
+        ports:
+        - containerPort: 8080
